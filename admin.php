@@ -47,17 +47,22 @@
       <li class="active"><a href="admin.php">Admin Centers</a></li>
     </ul>
   </div>
-</nav> 
+</nav>
 
 <br><br><br><br>
 <div class="container">
 	<div class="col-md-6">
+		<form method="post" enctype="multipart/form-data" action="stegode.php">
+			<div class="input-group">
+				Voucher Key
+				<input type="text" name="message" maxlength="20" class="form-control">
+			</div>
 	    <div class="form-group">
 	        <label>Upload Image</label>
 	        <div class="input-group">
 	            <span class="input-group-btn">
 	                <span class="btn btn-default btn-file">
-	                    Browse… <input type="file" id="imgInp">
+	                    Browse… <input type="file" name="file" id="imgInp">
 	                </span>
 	            </span>
 	            <input type="text" class="form-control" readonly>
@@ -65,14 +70,8 @@
 	        <img id='img-upload'/>
 	    </div>
 	<button class="btn btn-info">Submit</button>
+</form>
 	</div>
-	<div class="col-md-6">
-		<div class="input-group">
-			Voucher Key
-			<input type="text" name="message" class="form-control">
-		</div>
-	
-</div>
 
 </div>
 
@@ -88,32 +87,32 @@ $(document).ready( function() {
 		});
 
 		$('.btn-file :file').on('fileselect', function(event, label) {
-		    
+
 		    var input = $(this).parents('.input-group').find(':text'),
 		        log = label;
-		    
+
 		    if( input.length ) {
 		        input.val(log);
 		    } else {
 		        if( log ) alert(log);
 		    }
-	    
+
 		});
 		function readURL(input) {
 		    if (input.files && input.files[0]) {
 		        var reader = new FileReader();
-		        
+
 		        reader.onload = function (e) {
 		            $('#img-upload').attr('src', e.target.result);
 		        }
-		        
+
 		        reader.readAsDataURL(input.files[0]);
 		    }
 		}
 
 		$("#imgInp").change(function(){
 		    readURL(this);
-		}); 	
-	});	
+		});
+	});
 </script>
 </html>
