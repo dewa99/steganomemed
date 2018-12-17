@@ -66,14 +66,14 @@
 	    </div>
 	<button class="btn btn-info">Submit</button>
 	</div>
-</div>
-<div class="container">
 	<div class="col-md-6">
 		<div class="input-group">
 			Voucher Key
 			<input type="text" name="message" class="form-control">
 		</div>
-	</div>
+	
+</div>
+
 </div>
 
 
